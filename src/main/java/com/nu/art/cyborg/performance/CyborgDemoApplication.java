@@ -12,11 +12,9 @@ package com.nu.art.cyborg.performance;
 
 import android.app.Application;
 
-import com.nu.art.core.utils.DebugFlags;
 import com.nu.art.cyborg.core.CyborgBuilder;
 import com.nu.art.cyborg.core.CyborgBuilder.CyborgConfiguration;
 import com.nu.art.cyborg.core.CyborgStackController;
-import com.nu.art.cyborg.media.CyborgAudioRecorder;
 
 public class CyborgDemoApplication
 	extends Application {
@@ -28,6 +26,6 @@ public class CyborgDemoApplication
 	public void onCreate() {
 		super.onCreate();
 		CyborgStackController.DebugFlag.enable();
-		CyborgBuilder.startCyborg(new CyborgConfiguration(this, R.layout.activity__performance, MyModulePack.class));
+		CyborgBuilder.startCyborg(new CyborgConfiguration(this).setLaunchConfiguration(R.layout.activity__performance).setModulesPacks(MyModulePack.class));
 	}
 }
